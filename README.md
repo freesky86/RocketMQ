@@ -10,14 +10,15 @@ JDK17
 # Windows系统启动
 ## 一、服务启动步骤
 1.启动NameServer​   
-打开CMD进入bin目录，执行命令：mqnamesrv.cmd   
+打开CMD进入bin目录，执行命令：   
+mqnamesrv.cmd   
 成功后会弹出新窗口显示日志，若看到The Name Server boot success则启动成功   
 2.启动Broker​   
 在相同目录下执行（需指定NameServer地址）：mqbroker.cmd -n 127.0.0.1:9876 autoCreateTopicEnable=true     
 参数autoCreateTopicEnable=true用于自动创建Topic   
 
 ## 二、内存配置调整（可选）
-若遇到内存不足问题，需修改bin目录下的脚本文件：
+若遇到内存不足问题，需修改bin目录下的脚本文件：  
 ### runserver.cmd​
 将默认内存参数调整为： 
 set "JAVA_OPT=%JAVA_OPT% -server -Xms512m -Xmx512m -Xmn256m -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=320m"    
