@@ -42,6 +42,9 @@ JDK17
 ## 四、可视化控制台（可选）
 若需监控服务状态，可下载rocketmq-dashboard的jar包并运行：   
 #### java -jar rocketmq-dashboard-2.0.0.jar
-访问http://127.0.0.1:8080即可查看Broker、Topic等实时数据
+访问 http://127.0.0.1:8080 即可查看Broker、Topic等实时数据
 
-
+### 注意事项：    
+不要关闭NameServer和Broker的CMD窗口，否则服务会终止     
+JDK 17兼容RocketMQ 5.x版本，若遇到启动异常可检查JAVA_HOME环境变量是否指向JDK 17安装路径    
+若需远程访问，需开放防火墙的9876（NameServer）、10909/10911（Broker）端口      
