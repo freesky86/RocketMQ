@@ -29,8 +29,8 @@ set "JAVA_OPT=%JAVA_OPT% -server -Xms512m -Xmx512m"
 ## 三、功能验证
 1.发送测试消息​
 在CMD中临时设置环境变量后执行：
-set NAMESRV_ADDR=127.0.0.1:9876
-tools.cmd org.apache.rocketmq.example.quickstart.Producer
+set NAMESRV_ADDR=127.0.0.1:9876   
+tools.cmd org.apache.rocketmq.example.quickstart.Producer   
 发送完成后会显示SendResult [sendStatus=SEND_OK]
 2.消费消息
 执行命令：
