@@ -34,7 +34,9 @@ mqbroker.cmd -n 127.0.0.1:9876 -c D:\Software\rocketmq-all-5.3.1-bin-release\con
 或者 定义新的broker1.conf, broker2.conf文件，然后启动命令中指定配置文件：   
 #### mqbroker.cmd -n 127.0.0.1:9876 -c D:\Software\rocketmq-all-5.3.1-bin-release\conf\broker1.conf autoCreateTopicEnable=true   
 #### mqbroker.cmd -n 127.0.0.1:9876 -c D:\Software\rocketmq-all-5.3.1-bin-release\conf\broker2.conf autoCreateTopicEnable=true   
-broker1.conf和broker2.conf文件中设置不同的端口号和存储路径即可，比如  
+broker1.conf和broker2.conf文件中需要设置不同的端口号和存储路径以及Broker name，比如  
+##### Broker 名称
+brokerName = broker-b
 ##### 端口号
 listenPort=10921
 ##### 存储路径
