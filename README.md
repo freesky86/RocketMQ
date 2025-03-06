@@ -17,6 +17,29 @@ JDK17
 在相同目录下执行（需指定NameServer地址）：   
 #### mqbroker.cmd -n 127.0.0.1:9876 autoCreateTopicEnable=true     
 参数autoCreateTopicEnable=true用于自动创建Topic   
+如果上述方式启动broker失败，可尝试在broker.conf文件中添加以下配置：   
+##### NameServer 地址
+namesrvAddr=127.0.0.1:9876
+##### 存储路径
+storePathRootDir=D:/Software/rocketmq-all-5.3.1-bin-release/store
+storePathCommitLog=D:/Software/rocketmq-all-5.3.1-bin-release/store/commitlog  
+确保上面的路径存在，且有读写权限   
+然后执行命令：   
+mqbroker.cmd -n 127.0.0.1:9876 -c D:\Software\rocketmq-all-5.3.1-bin-release\conf\broker.conf autoCreateTopicEnable=true
+成功后会弹出新窗口显示日志，若看到The broker[broker-a, 192.168.1.101:10911] boot success则启动成功   
+
+如果希望本机启动多个Broker，可在broker.conf文件中设置不同的端口号，然后在启动命令中指定端口号：   
+#### mqbroker.cmd -n 127.0.0.1:9876 -c D:\Software\rocketmq-all-5.3.1-bin-release\conf\broker.conf -p 10911 autoCreateTopicEnable=true   
+#### mqbroker.cmd -n 127.0.0.1:9876 -c D:\Software\rocketmq-all-5.3.1-bin-release\conf\broker.conf -p 10912 autoCreateTopicEnable=true   
+或者 定义新的broker1.conf, broker2.conf文件，然后启动命令中指定配置文件：   
+#### mqbroker.cmd -n 127.0.0.1:9876 -c D:\Software\rocketmq-all-5.3.1-bin-release\conf\broker1.conf autoCreateTopicEnable=true   
+#### mqbroker.cmd -n 127.0.0.1:9876 -c D:\Software\rocketmq-all-5.3.1-bin-release\conf\broker2.conf autoCreateTopicEnable=true   
+broker1.conf和broker2.conf文件中设置不同的端口号和存储路径即可，比如  
+##### 端口号
+listenPort=10921
+##### 存储路径
+storePathRootDir=D:/Software/rocketmq-all-5.3.1-bin-release/store1
+storePathCommitLog=D:/Software/rocketmq-all-5.3.1-bin-release/store1/commitlog
 
 ## 二、内存配置调整（可选）
 若遇到内存不足问题，需修改bin目录下的脚本文件：  
