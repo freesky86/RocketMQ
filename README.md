@@ -13,6 +13,10 @@ JDK17
 打开CMD进入bin目录，执行命令：   
 #### mqnamesrv.cmd   
 成功后会弹出新窗口显示日志，若看到The Name Server boot success则启动成功   
+若想在本机测试集群环境，可以在另一个端口启动nameserver，命令如下：   
+#### mqnamesrv.cmd -p 9877   
+成功后会弹出新窗口显示日志，若看到The Name Server boot success则启动成功   
+
 2.启动Broker​   
 在相同目录下执行（需指定NameServer地址）：   
 #### mqbroker.cmd -n 127.0.0.1:9876 autoCreateTopicEnable=true     
@@ -20,6 +24,7 @@ JDK17
 如果上述方式启动broker失败，可尝试在broker.conf文件中添加以下配置：   
 ##### NameServer 地址
 namesrvAddr=127.0.0.1:9876
+如果是集群环境，要配置多个nameserver地址，用逗号分隔，如：namesrvAddr=127.0.0.1:9876,127.0.0.1:9877
 ##### 存储路径
 storePathRootDir=D:/Software/rocketmq-all-5.3.1-bin-release/store
 storePathCommitLog=D:/Software/rocketmq-all-5.3.1-bin-release/store/commitlog  
@@ -65,7 +70,7 @@ storePathCommitLog=D:/Software/rocketmq-all-5.3.1-bin-release/store1/commitlog
 消费者将持续监听消息，按CTRL+C可终止进程    
 
 ## 四、可视化控制台（可选）
-若需监控服务状态，可下载rocketmq-dashboard的jar包并运行：   
+若需监控服务状态，可下载 rocketmq-dashboard 2.0.0 版本的jar包并运行：   
 #### java -jar rocketmq-dashboard-2.0.0.jar
 访问 http://127.0.0.1:8080 即可查看Broker、Topic等实时数据
 

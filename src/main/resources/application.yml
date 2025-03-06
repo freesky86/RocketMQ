@@ -6,7 +6,7 @@ server:
   port: 8081
 
 rocketmq:
-  name-server: 127.0.0.1:9876  # rocketmq server address
+  name-server: 127.0.0.1:9876;127.0.0.1:9877  # rocketmq server address
   producer:
     group: test-producer-group
     send-message-timeout: 30000  # timeout for sending message, unit: ms
